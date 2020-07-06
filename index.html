@@ -10,10 +10,16 @@
         <h3>{{title}}</h3>
         <form @submit.prevent="addToDo">
             <label for="NewToDo">Yeni Etkinlik</label>
-            <input type="text"name="NewToDo" id="NewToDo">
+            <input v-model="NewToDo"type="text"name="NewToDo" id="NewToDo">
             <button id='Add'type="submit">Add</button>
         </form>
+        <ul>
+            <li v-for="todo in todos">
+                <input type="checkbox" :checked="todo.done">
+                <span>{{todo.name}}</span>
+            </li>
 
+        </ul>
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
