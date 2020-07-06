@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo</title>
+    <style>
+        .done{
+            text-decoration: line-through;
+            
+        }
+    </style>
 </head>
 <body>
     <main id="app">
@@ -15,8 +21,8 @@
         </form>
         <ul>
             <li v-for="todo in todos">
-                <input type="checkbox" :checked="todo.done">
-                <span>{{todo.name}}</span>
+                <input type="checkbox" v-model="todo.done">
+                <span :class="{ done: todo.done }">{{todo.name}}</span>
             </li>
 
         </ul>
