@@ -5,17 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo</title>
     <style>
-        .done{
+        .done {
             text-decoration: line-through;
-            
+        }
+        *{
+            text-align: center;
+            padding-left: 100px;
+            padding-right: 100px;
+            font-family:Helvetica;
+           
+        }
+        .title{
+        
+        }
+        .titlımsı{
+            margin-bottom: 25px;
         }
     </style>
 </head>
 <body>
     <main id="app">
-        <h3>{{title}}</h3>
+        <h3 class='title'>{{title}}</h3>
         <form @submit.prevent="addToDo">
-            <label for="NewToDo">Yeni Etkinlik</label>
+            <label class='titlımsı' for="NewToDo">Yeni Etkinlik</label>
             <input v-model="NewToDo"type="text"name="NewToDo" id="NewToDo">
             <button id='Add'type="submit">Add</button>
         </form>
@@ -23,12 +35,13 @@
             <li v-for="todo in todos">
                 <input type="checkbox" v-model="todo.done">
                 <span :class="{ done: todo.done }">{{todo.name}}</span>
+                <button @click="RemoveToDo(todo)">Kaldır</button>
             </li>
 
         </ul>
     </main>
     
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vue.js"></script>
     <script src="App.js" charset="utf-8"></script>
 </body>
 </html>

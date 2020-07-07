@@ -12,6 +12,13 @@ const app=new Vue({
              done:false
            });
            this.NewToDo=''
+       },
+       RemoveToDo(todo){
+            const index=this.todos.indexOf(todo);
+            this.todos.splice(index,1);
+
+
+
        }
    }
 });
