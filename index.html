@@ -4,43 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
     <style>
         .done {
             text-decoration: line-through;
         }
-        *{
-            text-align: center;
-            padding-left: 100px;
-            padding-right: 100px;
-            font-family:Helvetica;
-           
-        }
-        .title{
         
-        }
-        .titlımsı{
-            margin-bottom: 25px;
-        }
     </style>
+    
 </head>
 <body>
-    <main id="app">
+    
+    <main id="app" style="margin-left:500px">
         <h3 class='title'>{{title}}</h3>
         <form @submit.prevent="addToDo">
             <label class='titlımsı' for="NewToDo">Yeni Etkinlik</label>
             <input v-model="NewToDo"type="text"name="NewToDo" id="NewToDo">
-            <button id='Add'type="submit">Add</button>
+            <button id='Add'type="submit" class="btn btn-secondary">Ekle</button>
         </form>
         <ul>
             <li v-for="todo in todos">
-                <input type="checkbox" v-model="todo.done">
-                <span :class="{ done: todo.done }">{{todo.name}}</span>
-                <button @click="RemoveToDo(todo)">Kaldır</button>
+                <input type="checkbox" v-model="todo.done" style="margin:10px"><span :class="{ done: todo.done }" style="margin:5px">{{todo.name}}</span><button type="button" class="btn btn-danger" style="margin:10px" @click="RemoveToDo(todo)">Kaldır</button>
+                    
+                    
             </li>
 
         </ul>
     </main>
-    
+       
     <script src="vue.js"></script>
     <script src="App.js" charset="utf-8"></script>
 </body>
